@@ -1,0 +1,33 @@
+{% extends "@BMClient/layout.html.twig" %}
+{% block content %}
+    {% include '@BMClient/menu.html.twig' %}
+    <form method="post">
+        <label>Amount </label>
+        <select name="comparison_sign" required>
+            <option value=">">&gt;</option>
+            <option value="=">&equals;</option>
+            <option value="<">&lt;</option>
+        </select>
+        <input type="number" name="amount" min="0" required>
+        <input type="submit" value="search" />
+    </form>
+    <hr>
+    <table>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.amount }}</td>
+                <td>
+                    <a href="{{ path('client_update_item', {id: item.id}) }}">edit</a>
+                    <a href="{{ path('client_delete_item', {id: item.id}) }}"
+                       onclick="return confirm('Are you sure you want to delete it?')">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No data...</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

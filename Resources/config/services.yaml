@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  BMClientBundle\Client\:
+    resource: '../../{Controller,Libs, Services}/*'
+    exclude: '../../{Tests,BMClientBundle.php}'
+
+  BMClientBundle\Client\Controller\:
+    resource: '../../Controller'
+    tags: ['controller.service_arguments']
+
+  BMClientBundle\Client\Services\BMApiRequest:
+    $apiUrl: '%bm_api_url%'

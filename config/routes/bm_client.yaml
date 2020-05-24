@@ -1,0 +1,4 @@
+bm-client-bundle:
+    prefix: /items
+    resource: "@BMClientBundle/Controller/ItemController.php"
+    type: annotation

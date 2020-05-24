@@ -1,0 +1,22 @@
+{% extends "@BMClient/layout.html.twig" %}
+{% block content %}
+    {% include '@BMClient/menu.html.twig' %}
+    <table>
+        {% for item in items %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.amount }}</td>
+                <td>
+                    <a href="{{ path('client_update_item', {id: item.id}) }}">edit</a>
+                    <a href="{{ path('client_delete_item', {id: item.id}) }}"
+                       onclick="return confirm('Are you sure you want to delete it?')">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No data...</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
