@@ -40,3 +40,7 @@ Aby naprawić kod za pomocą `phpcbf` (tam gdzie się da) wystarczy uruchomić
 ```bash
 $ composer fix
 ```
+
+## Główny URL
+
+`/items/search`
